@@ -45,23 +45,14 @@ function convertArrayToList(arr) {
 
 
 function removeKFromList(l, k) {
-    let listFromNode = []
-    let current = l;
-
-    while (current !== null) {
-      listFromNode.push(current.value);
-      current = current.next;
-    }
-
-      let newNode = []
-  for (let i = 0; i < listFromNode.length; i++) {
-      if (listFromNode[i] != k) {
-          newNode.push(listFromNode[i]);
+  let newList = []
+  for (let i = 0; i < l.length; i++) {
+      if (l[i] != k) {
+         newList.push(l[i]);
       }
    }
-   return convertArrayToList(newNode)
+   return convertArrayToList(newList)
 }
-
 module.exports = {
   removeKFromList
 };

@@ -22,44 +22,15 @@ const { NotImplementedError } = require('../extensions/index.js');
  *   }
  * }
  */
-
-class ListNode {
-  constructor(x) {
-    this.value = x;
-    this.next = null;
-  }
-
-}
-function convertArrayToList(arr) {
-  return arr.reverse().reduce((acc, cur) => {
-    if (acc) {
-      const node = new ListNode(cur);
-      node.next = acc;
-      return node;
-    }
-
-    return new ListNode(cur);
-  }, null);
-}
-
-
-
 function removeKFromList(l, k) {
-    let listFromNode = []
-    let current = l;
-
-    while (current !== null) {
-      listFromNode.push(current.value);
-      current = current.next;
-    }
-
-      let newNode = []
-  for (let i = 0; i < listFromNode.length; i++) {
-      if (listFromNode[i] != k) {
-          newNode.push(listFromNode[i]);
+  let firstNode = new ListNode(0);
+  let newList = []
+  for (let i = 0; i < l.length; i++) {
+      if (l[i] != k) {
+         newList.push(l[i]);
       }
    }
-   return convertArrayToList(newNode)
+   return newList
 }
 
 module.exports = {
