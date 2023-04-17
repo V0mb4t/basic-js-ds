@@ -126,7 +126,7 @@ class BinarySearchTree {
               return node;
           }
    
-          var aux = this.findMinNode(node.right);
+          var aux = this.min(node.right);
           node.data = aux.data;
    
           node.right = this.removeNode(node.right, aux.data);
