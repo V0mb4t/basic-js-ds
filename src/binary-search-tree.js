@@ -49,7 +49,7 @@ class BinarySearchTree {
   
     function search(node, data) {
       if (node === null) {
-        return null;
+        return false;
       } else if (data < node.data) {
         return search(node.left, data);
       } else if (data > node.data) {
@@ -86,10 +86,7 @@ class BinarySearchTree {
       this.currentNode = this.removeNode(this.currentNode, data);
   }
    
-  removeNode(node, key)
-  {
-           
-
+  removeNode(node, key){
       if(node === null)
           return null;
    
@@ -126,7 +123,7 @@ class BinarySearchTree {
               return node;
           }
    
-          var aux = this.min(node.right);
+          var aux = this.findMinNode(node.right);
           node.data = aux.data;
    
           node.right = this.removeNode(node.right, aux.data);
@@ -134,6 +131,16 @@ class BinarySearchTree {
       }
    
   }
+
+  findMinNode(node)
+  {
+
+      if(node.left === null)
+          return node;
+      else
+          return this.findMinNode(node.left);
+  }
+
   min() {
     if (this.currentNode === null) {
       return null;
@@ -160,6 +167,7 @@ class BinarySearchTree {
       return current.data;
   }
 }
+
 
 module.exports = {
   BinarySearchTree
