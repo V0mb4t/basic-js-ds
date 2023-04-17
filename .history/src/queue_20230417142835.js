@@ -19,23 +19,18 @@ class Queue {
       this.items = []
   }
 
-  getUnderlyingList() {
-    let obj = null;
-    for (let i = this.items.length - 1; i >= 0; i--) {
-      obj = { value: this.items[i], next: obj };
-    }
-    return obj;
-  }
-
-  enqueue(value) {
-    return this.items.push(value)
-  }
-
-  dequeue() {
-    return this.items.shift()
-  }
+getUnderlyingList() {
+  return this.items
 }
 
+enqueue(value) {
+  return this.items.push(value)
+}
+
+dequeue() {
+  return this.items.shift()
+}
+}
 
 
 module.exports = {

@@ -19,21 +19,25 @@ class Queue {
       this.items = []
   }
 
-  getUnderlyingList() {
-    let obj = null;
-    for (let i = this.items.length - 1; i >= 0; i--) {
-      obj = { value: this.items[i], next: obj };
-    }
-    return obj;
-  }
+getUnderlyingList() {
+  console.log(this.items[12])
+  const obj = this.items.reduceRight((acc, curr) => {
+      if (acc === null) {
+        return { value: curr };
+      } else {
+        return { value: curr, next: acc };
+      }
+    });
+  return obj
+}
 
-  enqueue(value) {
-    return this.items.push(value)
-  }
+enqueue(value) {
+  return this.items.push(value)
+}
 
-  dequeue() {
-    return this.items.shift()
-  }
+dequeue() {
+  return this.items.shift()
+}
 }
 
 
